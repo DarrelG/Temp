@@ -16,6 +16,7 @@ namespace LOrdCardShop.Singleton
             if (instance == null)
             {
                 instance = new Database1Entities();
+
             }
             return instance;
         }
