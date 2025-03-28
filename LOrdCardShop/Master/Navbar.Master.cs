@@ -15,14 +15,14 @@ namespace LOrdCardShop.Master
         {
             if (!IsPostBack)
             {
-                bool isLoggedIn = Session["Username"] != null;
+                bool isLoggedIn = Session["User"] != null;
                 string currentPage = Path.GetFileName(Request.Url.AbsolutePath);
 
                 if (isLoggedIn)
                 {
                     GuestNavbar.Visible = false;
                     DefaultNavbar.Visible = true;
-                    UsernameLabel.Text = "Hello, " + Session["Username"].ToString();
+                    UsernameLabel.Text = "Hello, " + Session["User"];
                 }
                 else
                 {

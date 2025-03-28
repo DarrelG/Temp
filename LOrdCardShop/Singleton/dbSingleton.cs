@@ -1,24 +1,48 @@
 ﻿using LOrdCardShop.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace LOrdCardShop.Singleton
 {
     public class dbSingleton
     {
-        private static Database1Entities instance;
         private static HttpCookie Cookie = HttpContext.Current.Request.Cookies["user_cookie"];
+        private static Database1Entities instance;
+        private static readonly object lockObject = new object();
 
-        public static Database1Entities getInstance()
+        protected static DbSet<User> UserDb;
+        protected static DbSet<Cart> CartDb;
+        protected static DbSet<Card> CardDb;
+        protected static DbSet<TransactionHeader> ThDb;
+        protected static DbSet<TransactionDetail> TdDb;
+
+        public static async Task<Database1Entities> GetInstanceAsync()
         {
             if (instance == null)
             {
-                instance = new Database1Entities();
-
+                lock (lockObject)
+                {
+                    if (instance == null)
+                    {
+                        instance = new Database1Entities();
+                    }
+                }
             }
             return instance;
+        }
+
+        public static async Task InitAsync()
+        {
+            var db = await GetInstanceAsync();
+            UserDb = db.Users;
+            CartDb = db.Carts;
+            CardDb = db.Cards;
+            ThDb = db.TransactionHeaders;
+            TdDb = db.TransactionDetails;
         }
 
         public static void addUserCookie(string Users)

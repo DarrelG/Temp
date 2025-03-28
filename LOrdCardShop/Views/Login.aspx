@@ -39,6 +39,11 @@
             justify-content: center;
             gap: 5px;
         }
+
+        a{
+            display: inline;
+            font-size: smaller;
+        }
     </style>
 
     <script type="text/javascript">
@@ -74,5 +79,7 @@
         <asp:Label ID="errLbl" runat="server" Text="" ForeColor="#DC1414" Visible="False"></asp:Label><br />
 
         <asp:Button ID="loginBtn" runat="server" Text="Login" onClick="loginBtn_Click"/>
+
+        <p style="display: inline; font-size: smaller;">Create new account </p><a href="Register.aspx">here.</a>
     </div>
 </asp:Content>
