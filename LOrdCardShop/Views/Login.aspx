@@ -70,6 +70,8 @@
             <asp:CheckBox ID="rememberMe" runat="server" />
             <asp:Label ID="Label1" runat="server" Text="Remember&nbspMe!"></asp:Label>
         </div>
+        <br />
+        <asp:Label ID="errLbl" runat="server" Text="" ForeColor="#DC1414" Visible="False"></asp:Label><br />
 
         <asp:Button ID="loginBtn" runat="server" Text="Login" onClick="loginBtn_Click"/>
     </div>

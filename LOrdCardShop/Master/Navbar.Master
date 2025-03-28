@@ -1,11 +1,27 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.Master.cs" Inherits="LOrdCardShop.Master.MasterPage" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <title>LOrd Card Shop</title>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <script>
+        function toggleProfileMenu() {
+            var menu = document.getElementById("profileMenu");
+            menu.classList.toggle("active");
+        }
+
+        document.addEventListener("click", function (event) {
+            var profileBtn = document.querySelector(".profile-btn");
+            var profileMenu = document.getElementById("profileMenu");
+
+            if (!profileBtn.contains(event.target) && !profileMenu.contains(event.target)) {
+                profileMenu.classList.remove("active");
+            }
+        });
+    </script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,26 +55,65 @@
             color: #f39c12;
         }
 
-        .nav-buttons {
-            right: 0;
-            float: right;
-            gap: 10px;
+        .nav-links {
+            align-items: center;
+            margin-right: auto;
         }
 
-        .nav-buttons .btn {
-            background-color: #f39c12;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            color: white;
+        .username-label {
+            margin-right: 10px;
             font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
         }
 
-        .nav-buttons .btn:hover {
-            background-color: #e67e22;
+        .profile-btn {
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.3s ease;
         }
+
+        .profile-btn:hover {
+            color: #007bff;
+        }
+
+        .profile-menu {
+            position: absolute;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            padding: 10px;
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .profile-menu p {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .profile-menu p:hover {
+            background: #f1f1f1;
+        }
+
+        .profile-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #GuestLoginButton{
+            border: none;
+            color: white;
+            background: #2c3e50;
+        }
+
+            #GuestLoginButton:hover {
+                cursor: pointer;
+            }
 
         @media (max-width: 600px) {
             .navbar {
@@ -66,8 +121,13 @@
                 text-align: center;
             }
 
-            .nav-buttons {
+            .nav-links {
                 margin-top: 10px;
+                flex-direction: column;
+            }
+
+            .username-label {
+                margin: 10px 0;
             }
         }
     </style>
@@ -75,24 +135,32 @@
 <body>
     <form id="form1" runat="server">
         <div class="navbar">
-            <h1><a href="#" style="color: #f39c12;">LOrd Card Shop</a></h1>
-            <div style="margin-right: auto;">
-                <a href="#">About Us</a>
+            <h1><a href="Home.aspx" style="color: #f39c12;">LOrd Card Shop</a></h1>
+            
+            <div class="nav-links">
+                <a href="Order.aspx">Order Card</a>
+                <a href="History.aspx">History</a>
+                <a href="Cart.aspx">Cart</a>
             </div>
-            <asp:Label ID="UsernameLabel" runat="server" Text="" style="margin-right: 50px;"></asp:Label>
+
+            <asp:Label ID="UsernameLabel" runat="server" CssClass="username-label"></asp:Label>
+
             <div class="nav-buttons">
-                <asp:Panel ID="GuestNavbar" runat="server">
-                    <asp:Button ID="LoginBtn" runat="server" CssClass="btn" Text="Login" onClick="LoginBtn_Click"/>
+                <asp:Panel ID="DefaultNavbar" runat="server" Visible="false">
+                    <p class="profile-btn" onclick="toggleProfileMenu()">Profile</p>
+                    <div id="profileMenu" class="profile-menu">
+                        <p>Edit Profile</p>
+                        <asp:Button ID="LogoutBtn" runat="server" CssClass="btn" Text="LogOut" OnClick="LogoutBtn_Click" />
+                    </div>
                 </asp:Panel>
 
-                <asp:Panel ID="DefaultNavbar" runat="server">
-                    <asp:Button ID="LogoutBtn" runat="server" CssClass="btn" Text="LogOut" onClick="LogoutBtn_Click"/>
+                <asp:Panel ID="GuestNavbar" runat="server">
+                    <asp:Button ID="GuestLoginButton" runat="server" CssClass="btn" />
                 </asp:Panel>
             </div>
         </div>
 
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
     </form>
 </body>
 </html>

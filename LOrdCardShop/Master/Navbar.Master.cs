@@ -1,6 +1,7 @@
 ﻿using LOrdCardShop.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,25 +15,40 @@ namespace LOrdCardShop.Master
         {
             if (!IsPostBack)
             {
-                UsernameLabel.Text = Session["user"] != null ? $"Welcome {Session["user"]}" : "Welcome Guest";
-            }
-            if (Session["User"] == null)
-            {
-                GuestNavbar.Visible = true;
-                DefaultNavbar.Visible = false;
-            }
-            else
-            {
-                GuestNavbar.Visible = false;
-                DefaultNavbar.Visible = true;
+                bool isLoggedIn = Session["Username"] != null;
+                string currentPage = Path.GetFileName(Request.Url.AbsolutePath);
+
+                if (isLoggedIn)
+                {
+                    GuestNavbar.Visible = false;
+                    DefaultNavbar.Visible = true;
+                    UsernameLabel.Text = "Hello, " + Session["Username"].ToString();
+                }
+                else
+                {
+                    GuestNavbar.Visible = true;
+                    DefaultNavbar.Visible = false;
+
+                    string loginUrl = ResolveUrl("~/Views/Login.aspx");
+                    string registerUrl = ResolveUrl("~/Views/Register.aspx");
+
+                    if (currentPage != "Login.aspx")
+                    {
+                        GuestLoginButton.Text = "Login";
+                        GuestLoginButton.PostBackUrl = loginUrl;
+                    }
+                    else
+                    {
+                        GuestLoginButton.Text = "Register";
+                        GuestLoginButton.PostBackUrl = registerUrl;
+                    }
+                }
             }
         }
 
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
             Session.Clear();
-            Session.Abandon();
-            Session.RemoveAll();
 
             Response.Redirect("~/Views/Login.aspx");
         }

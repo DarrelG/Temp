@@ -30,23 +30,32 @@ namespace LOrdCardShop.Views
             string username = uNameTb.Text;
             string password = pwTb.Text;
 
-            var user = db.Users.FirstOrDefault(x => x.UserName == username && x.UserPassword == password);
-            if (user != null)
+            if(string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
             {
-                Session["User"] = user.UserName;
-
-                if (rememberMe.Checked)
-                {
-                    HttpCookie userCookie = new HttpCookie("user_cookie", user.UserName);
-
-                    userCookie.Expires = DateTime.Now.AddDays(1);
-                    Response.Cookies.Add(userCookie);
-                }
-                Response.Redirect("Home.aspx");
+                errLbl.Text = "Username and Password must be filled!";
+                errLbl.Visible = true;
             }
             else
             {
-                Response.Redirect("Register.aspx");
+                var user = db.Users.FirstOrDefault(x => x.UserName == username && x.UserPassword == password);
+                if (user != null)
+                {
+                    Session["User"] = user.UserName;
+
+                    if (rememberMe.Checked)
+                    {
+                        HttpCookie userCookie = new HttpCookie("user_cookie", user.UserName);
+
+                        userCookie.Expires = DateTime.Now.AddDays(1);
+                        Response.Cookies.Add(userCookie);
+                    }
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    errLbl.Text = "Username or Password invalid!";
+                    errLbl.Visible = true;
+                }
             }
         }
     }

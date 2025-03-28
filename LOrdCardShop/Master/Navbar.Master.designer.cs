@@ -42,24 +42,6 @@ namespace LOrdCardShop.Master
         protected global::System.Web.UI.WebControls.Label UsernameLabel;
 
         /// <summary>
-        /// GuestNavbar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel GuestNavbar;
-
-        /// <summary>
-        /// LoginBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginBtn;
-
-        /// <summary>
         /// DefaultNavbar control.
         /// </summary>
         /// <remarks>
@@ -76,6 +58,24 @@ namespace LOrdCardShop.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button LogoutBtn;
+
+        /// <summary>
+        /// GuestNavbar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel GuestNavbar;
+
+        /// <summary>
+        /// GuestLoginButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GuestLoginButton;
 
         /// <summary>
         /// ContentPlaceHolder1 control.
