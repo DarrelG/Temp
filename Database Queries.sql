@@ -25,8 +25,14 @@ CREATE TABLE Carts(
 )
 
 CREATE TABLE TransactionHeader(
-	TransactionID INT NOT NULL IDENTITY(1,1),
+	TransactionID INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 	TransactionDate DATE NOT NULL,
 	CustomerID INT NOT NULL REFERENCES Users(UserID),
 	Status VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE TransactionDetail(
+	TransacttionID INT NOT NULL REFERENCES TransactionHeader(TransactionID),
+	CardID INT NOT NULL REFERENCES "Card"(CardID),
+	Quantity INT NOT NULL
 )
