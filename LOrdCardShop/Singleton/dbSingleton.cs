@@ -43,6 +43,5 @@ namespace LOrdCardShop.Singleton
             initCookie();
             return Cookie;
         }
-
     }
 }
