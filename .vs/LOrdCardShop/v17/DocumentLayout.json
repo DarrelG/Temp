@@ -1,0 +1,60 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Darrel\\Semester 4\\Pattern Software Design\\PSD_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A4FB69-2D59-470E-8BB5-4B9ADD32BA11}|LOrdCardShop\\LOrdCardShop.csproj|c:\\darrel\\semester 4\\pattern software design\\psd_project\\lordcardshop\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B6A4FB69-2D59-470E-8BB5-4B9ADD32BA11}|LOrdCardShop\\LOrdCardShop.csproj|solutionrelative:lordcardshop\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A4FB69-2D59-470E-8BB5-4B9ADD32BA11}|LOrdCardShop\\LOrdCardShop.csproj|C:\\Darrel\\Semester 4\\Pattern Software Design\\PSD_Project\\lordcardshop\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{B6A4FB69-2D59-470E-8BB5-4B9ADD32BA11}|LOrdCardShop\\LOrdCardShop.csproj|solutionrelative:lordcardshop\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 419,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Darrel\\Semester 4\\Pattern Software Design\\PSD_Project\\LOrdCardShop\\packages.config",
+              "RelativeDocumentMoniker": "LOrdCardShop\\packages.config",
+              "ToolTip": "C:\\Darrel\\Semester 4\\Pattern Software Design\\PSD_Project\\LOrdCardShop\\packages.config",
+              "RelativeToolTip": "LOrdCardShop\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-03-30T04:34:50.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Darrel\\Semester 4\\Pattern Software Design\\PSD_Project\\LOrdCardShop\\Models\\Model1.edmx",
+              "RelativeDocumentMoniker": "LOrdCardShop\\Models\\Model1.edmx",
+              "ToolTip": "C:\\Darrel\\Semester 4\\Pattern Software Design\\PSD_Project\\LOrdCardShop\\Models\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "LOrdCardShop\\Models\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-03-30T04:03:35.389Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
