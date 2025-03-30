@@ -51,7 +51,19 @@ namespace LOrdCardShop.Master
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
             Session.Clear();
+            Session.Abandon();
 
+            if (Request.Cookies["user_cookies"] != null)
+            {
+                HttpCookie userCookie = new HttpCookie("user_cookie", "");
+                userCookie.Expires = DateTime.Now.AddDays(-1);
+                userCookie.Value = null;
+                Response.Cookies.Set(userCookie);
+                if (userCookie != null)
+                {
+
+                };
+            }
             Response.Redirect("~/Views/Login.aspx");
         }
 

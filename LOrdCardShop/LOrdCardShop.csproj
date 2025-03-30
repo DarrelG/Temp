@@ -95,7 +95,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\LoginHandler.cs" />
+    <Compile Include="Handler\RegisterHandler.cs" />
     <Compile Include="Master\Navbar.Master.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

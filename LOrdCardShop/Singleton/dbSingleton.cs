@@ -20,6 +20,11 @@ namespace LOrdCardShop.Singleton
         protected static DbSet<TransactionHeader> ThDb;
         protected static DbSet<TransactionDetail> TdDb;
 
+        public static void saveDbChange()
+        {
+            instance.SaveChanges();
+        }
+
         public static async Task<Database1Entities> GetInstanceAsync()
         {
             if (instance == null)

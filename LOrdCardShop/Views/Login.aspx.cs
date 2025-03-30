@@ -15,13 +15,13 @@ namespace LOrdCardShop.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    if (Session["User"] != null || Request.Cookies["user_cookie"] != null)
-            //    {
-            //        Response.Redirect("Home.aspx");
-            //    }
-            //}
+            if (!IsPostBack)
+            {
+                if (Session["user"] != null || Request.Cookies["user_cookies"] != null)
+                {
+                    Response.Redirect("Home.aspx");
+                }
+            }
         }
 
         protected void loginBtn_Click(object sender, EventArgs e)
