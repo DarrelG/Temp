@@ -1,9 +1,11 @@
-﻿using LOrdCardShop.Models;
+﻿using LOrdCardShop.Factory;
+using LOrdCardShop.Models;
 using LOrdCardShop.Singleton;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace LOrdCardShop.Repository
@@ -28,6 +30,14 @@ namespace LOrdCardShop.Repository
                 return true;
             }
             return false;
+        }
+
+        public static async Task createNewUser(string username, string password, string email, string gender, DateTime DOB)
+        {
+            User newUser = UserFactory.createNewUser(username, password, email, gender, DOB);
+            await InitAsync();
+            UserDb.Add(newUser);
+            saveDbChange();
         }
     }
 }
